@@ -1,14 +1,12 @@
-from flask import Blueprint, request, jsonify, render_template
+from flask import Blueprint, request, jsonify
 from app.models import Data
 from app import db
 
 data_routes = Blueprint("data_routes", __name__)
 
-
 @data_routes.route('/')
 def index():
     return '¡Hola, mundo!'
-
 
 @data_routes.route("/data", methods=["POST"])
 def insert_data():
@@ -23,12 +21,10 @@ def insert_data():
     db.session.commit()
     return jsonify({"message": "Data inserted successfully"})
 
-
 @data_routes.route("/data", methods=["GET"])
 def get_all_data():
     data_list = [{"id": data.id, "name": data.name} for data in Data.query.all()]
     return jsonify(data_list)
-
 
 @data_routes.route("/data/<int:id>", methods=["DELETE"])
 def delete_data(id):
