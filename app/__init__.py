@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from app.config import config_dict
+from app.routes import data_routes
 
 db = SQLAlchemy()
 
