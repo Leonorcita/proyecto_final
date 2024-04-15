@@ -1,8 +1,13 @@
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, request, jsonify, render_template
 from app.models import Data
 from app import db
 
 data_routes = Blueprint("data_routes", __name__)
+
+
+@data_routes.route('/')
+def index():
+    return '¡Hola, mundo!'
 
 
 @data_routes.route("/data", methods=["POST"])
