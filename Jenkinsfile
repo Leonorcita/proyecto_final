@@ -14,18 +14,7 @@ pipeline {
                 }
             }
         }
-        
-        stage('Create Virtual Environment') {
-            steps {
-                script {
-                    // Crear el entorno virtual
-                    sh 'python3 -m venv /var/jenkins_home/workspace/myenv'
-                    // Activar el entorno virtual
-                    sh 'source /var/jenkins_home/workspace/myenv/bin/activate'
-                }
-            }
-        }
-        
+      
         stage('Clone Repository') {
             steps {
                 checkout([$class: 'GitSCM', branches: [[name: '*/develop']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'GITHUB', url: 'https://github.com/Leonorcita/proyecto_final.git']]])
@@ -35,7 +24,13 @@ pipeline {
         stage('Install Requirements') {
             steps {
                 script {
-                    // Instalar las dependencias del proyecto en el entorno virtual
+                    // Crear el entorno virtual
+                    sh 'python3 -m venv myenv'
+            
+                    // Activar el entorno virtual
+                    sh 'source myenv/bin/activate'
+            
+                    // Instalar las dependencias del proyecto
                     sh 'pip install -r proyecto_final/requirements.txt'
                 }
             }
