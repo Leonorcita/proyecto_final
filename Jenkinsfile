@@ -66,9 +66,7 @@ pipeline {
             steps {
                 script {
                     // Construir la imagen Docker
-                    withCredentials([usernamePassword(credentialsId: 'DOCKHUB', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
-                        docker.build("$DOCKER_USERNAME/imagendockerleonor:$BUILDNUMBER")
-                    }
+                    docker.build("leonorcita/imagendockerleonor:latest")
                 }
             }
         }
@@ -87,7 +85,7 @@ pipeline {
                         sh "docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD"
                         
                         // Subir la imagen a Docker Hub
-                        sh "docker push $DOCKER_USERNAME/imagendockerleonor:$BUILDNUMBER"
+                        sh "docker push leonorcita/imagendockerleonor:latest"
                         
                     }
                 }
