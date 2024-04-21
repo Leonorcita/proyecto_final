@@ -86,7 +86,7 @@ pipeline {
                         sh "docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD"
                         
                         // Subir la imagen a Docker Hub
-                        sh "docker push imagendockerleonor:latest"
+                        sh "docker push leonorcita/imagendockerleonor:latest"
                         
                     }
                 }
