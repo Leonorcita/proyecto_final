@@ -24,8 +24,8 @@ pipeline {
         stage('Install Requirements') {
             steps {
                 script {
-                    // Cambiar al directorio del repositorio clonado
-                    dir('proyecto_final') {
+                // Cambiar al directorio del repositorio clonado
+                dir('proyecto_final') {
                     // Crear el entorno virtual
                     sh 'python3 -m venv myenv'
                 
