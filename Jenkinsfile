@@ -72,11 +72,11 @@ pipeline {
         }
         
         stage('Push Docker Image') {
-            when {
-                anyOf {
-                    branch 'develop'; branch 'main'
-                }
-            }
+            // when {
+            //     anyOf {
+            //         branch 'develop'; branch 'main'
+            //     }
+            // }
             steps {
                 script {
                     // Utiliza las credenciales de Docker Hub
