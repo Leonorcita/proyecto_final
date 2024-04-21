@@ -66,7 +66,9 @@ pipeline {
             steps {
                 script {
                     // Construir la imagen Docker
-                    docker.build("$DOCKER_USERNAME/imagendockerleonor:$BUILDNUMBER")
+                    withCredentials([usernamePassword(credentialsId: 'DOCKHUB', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+                        docker.build("$DOCKER_USERNAME/imagendockerleonor:$BUILDNUMBER")
+                    }
                 }
             }
         }
