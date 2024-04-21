@@ -86,8 +86,7 @@ pipeline {
                         sh "docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD"
                         
                         // Subir la imagen a Docker Hub
-                        docker.withRegistry('https://hub.docker.com/', 'leonorcita') {
-                            docker.image("imagendockerleonor:latest").push()
+                        sh "docker push imagendockerleonor:latest"
                         }
                     }
                 }
