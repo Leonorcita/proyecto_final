@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     stages {
-        stage('Check Python Installation') {
+        stage('Check Python and Make Installation') {
             steps {
                 script {
                     // Verificar si Python está instalado
@@ -11,6 +11,7 @@ pipeline {
                         sh 'sudo apt-get update'
                         sh 'sudo apt-get install -y python3'
                     }
+
                     // Verificar si Make está instalado
                     if (!isMakeInstalled()) {
                         // Instalar Make
