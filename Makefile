@@ -3,3 +3,9 @@ coverage:
 	coverage report -m
 
 pytest: coverage
+
+format: black .
+
+lint:
+	black --check .
+	flake8
