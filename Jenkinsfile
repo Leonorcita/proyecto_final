@@ -11,6 +11,11 @@ pipeline {
                         sh 'sudo apt-get update'
                         sh 'sudo apt-get install -y python3'
                     }
+                    // Verificar si Make está instalado
+                    if (!isMakeInstalled()) {
+                        // Instalar Make
+                        sh 'sudo apt-get install -y make'
+                    }
                 }
             }
         }
@@ -95,4 +100,9 @@ pipeline {
 def isPythonInstalled() {
     // Verificar si Python está instalado
     return sh(script: 'command -v python3 &> /dev/null', returnStatus: true) == 0
+}
+
+def isMakeInstalled() {
+    // Verificar si Make está instalado
+    return sh(script: 'command -v make &> /dev/null', returnStatus: true) == 0
 }
