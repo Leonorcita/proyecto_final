@@ -66,7 +66,7 @@ pipeline {
             steps {
                 script {
                     // Construir la imagen Docker
-                    docker.build("DOCKER_USERNAME/imagendockerleonor:$BUILDNUMBER")
+                    docker.build("$DOCKER_USERNAME/imagendockerleonor:$BUILDNUMBER")
                 }
             }
         }
