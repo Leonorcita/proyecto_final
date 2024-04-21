@@ -87,7 +87,7 @@ pipeline {
                         
                         // Subir la imagen a Docker Hub
                         sh "docker push imagendockerleonor:latest"
-                        }
+                        
                     }
                 }
             }
