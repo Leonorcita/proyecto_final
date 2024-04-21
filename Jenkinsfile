@@ -15,7 +15,7 @@ pipeline {
                     // Verificar si Make está instalado
                     if (!isMakeInstalled()) {
                         // Instalar Make
-                        sh 'sudo apt-get install -y make'
+                        sh 'apt-get install -y make'
                     }
                 }
             }
