@@ -7,14 +7,14 @@ pipeline {
                 script {
                     // Verificar si Python está instalado
                     if (!isPythonInstalled()) {
-                        // Instalar Python
-                        sh 'sudo apk add --no-cache python3'
+
+                        sh 'echo "Python no está instalado. Contacte con el equipo de infraestructura.'
                     }
 
                     // Verificar si Make está instalado
                     if (!isMakeInstalled()) {
-                        // Instalar Make
-                        sh 'sudo apk add --no-cache make'
+
+                        sh 'echo "Make no está instalado. Contacte con el equipo de infraestructura.'
                     }
                 }
             }
@@ -35,9 +35,6 @@ pipeline {
                         // Activar el entorno virtual
                         sh 'source myenv/bin/activate'
 
-                        sh 'pwd'
-                        
-                        sh 'ls'
                         // Instalar las dependencias del proyecto
                         sh 'source myenv/bin/activate && pip install -r requirements.txt'
                 }
