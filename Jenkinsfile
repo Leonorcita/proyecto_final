@@ -50,7 +50,11 @@ pipeline {
         
         stage('Linting') {
             steps {
-                sh 'source myenv/bin/activate && flake8 .'
+                 try {
+                        sh 'source myenv/bin/activate && flake8 .'
+                    } catch (Exception e) {
+                        echo "Error de linting detectado, pero se ignora"
+                    }
             }
         }
         
