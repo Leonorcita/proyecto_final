@@ -32,6 +32,8 @@ pipeline {
                         // Activar el entorno virtual
                         sh 'source myenv/bin/activate'
 
+                        sh 'pwd'
+
                         // Instalar las dependencias del proyecto
                         sh 'source myenv/bin/activate && pip install -r proyecto_final/requirements.txt'
                     }
