@@ -1,26 +1,32 @@
 # Proyecto DevOps
 
-Este proyecto implementa una API RESTful utilizando Flask y SQLAlchemy, junto con una Pipeline de CI/CD con Jenkins.
+Este proyecto implementa una API RESTful utilizando Flask y SQLAlchemy, junto con una Pipeline de CI con Jenkins.
 
 ## Arquitectura del Software
 
 La aplicación web está escrita en Python con el framework Flask. Utiliza una arquitectura de microservicios, donde la lógica de negocio se separa en distintos módulos o servicios.
 
-## Ejecución de los Tests
+## Imagen
+
+## Prerrequisitos
+
+1. Instalar Docker.
+2. Instalar Visual Studio Code.
+3. Instalar Git.
+4. Ejecutar el siguiente comando para clonar repositorio `git clone https://github.com/Leonorcita/proyecto_final.git`.
+5. Setear usuario de git `git config --global user.email "you@example.com"` + `git config --global user.name "Your Name"`.
+6. Creación de branch propia.
+7. Comenzar a modificar el código.
+
+## Ejecución de los Tests en el Entorno local de pruebas
 
 Para ejecutar los tests, sigue estos pasos:
 
-1. Asegúrate de tener Python y pip instalados en tu sistema.
-2. Ejecuta `pip install -r requirements-test.txt`.
+1. Ejecutar `docker-compose up --build`.
+2. Ejecuta `docker exec -it proyecto_final_web_1 /bin/bash`.
 3. Ejecuta `pytest`.
-
-## Ejecución del Entorno Local para Pruebas
-
-Para ejecutar el entorno local de desarrollo, sigue estos pasos:
-
-1. Asegúrate de tener Docker instalado en tu sistema.
-2. Coloca los archivos relacionados en la raíz de tu proyecto.
-3. Ejecuta `docker-compose up --build`.
+4. Visualización de errores en el código para su resolución.
+5. Si no hay errores, realizar la actualización del código.
 
 ## Normas de Colaboración para el Trabajo en Equipo
 

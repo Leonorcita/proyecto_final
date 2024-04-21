@@ -12,6 +12,8 @@ services:
     environment:
       - FLASK_ENV=development
       - DATABASE_URI=postgresql://myuser:mypassword@db:5432/mydatabase
+    volumes:
+      - .:/app
 
   db:
     image: postgres:13
