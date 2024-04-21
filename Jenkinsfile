@@ -28,7 +28,7 @@ pipeline {
         
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/Leonorcita/proyecto_final.git'
+                checkout([$class: 'GitSCM', branches: [[name: '*/develop']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'GITHUB', url: 'https://github.com/Leonorcita/proyecto_final.git']]])
             }
         }
         
