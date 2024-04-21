@@ -62,12 +62,7 @@ pipeline {
         }
         
         stage('Build Docker Image') {
-            when {
-                anyOf {
-                    branch 'develop'
-                    branch 'main'
-                }
-            }
+            agent any
             steps {
                 script {
                     // Construir la imagen Docker
