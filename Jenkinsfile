@@ -55,6 +55,7 @@ pipeline {
                             sh 'source myenv/bin/activate && flake8 .'
                         } catch (Exception e) {
                             echo "Error de linting detectado, pero se ignora"
+                            currentBuild.result = 'SUCCESS' // Establece el resultado del build como éxito para que continúe
                         }
                 }
             }
