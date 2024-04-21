@@ -8,13 +8,13 @@ pipeline {
                     // Verificar si Python está instalado
                     if (!isPythonInstalled()) {
                         // Instalar Python
-                        sh 'apk add --no-cache python3'
+                        sh 'sudo apk add --no-cache python3'
                     }
 
                     // Verificar si Make está instalado
                     if (!isMakeInstalled()) {
                         // Instalar Make
-                        sh 'apk add --no-cache make'
+                        sh 'sudo apk add --no-cache make'
                     }
                 }
             }
