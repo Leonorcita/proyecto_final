@@ -28,3 +28,21 @@ def test_delete_data(client):
     # Test deleting data
     response = client.delete("/data/1")
     assert response.status_code == 404  # Assuming no data with ID 1 exists initially
+
+def test_manage_py(capsys):
+    import os
+    os.environ["FLASK_ENV"] = "testing"
+    import manage  # Importa manage.py para ejecutar su código
+    # Agrega aserciones para verificar que las tablas de la base de datos se crean correctamente
+    captured = capsys.readouterr()
+    assert "Database tables created." in captured.out
+
+def test_run_py():
+    import os
+    os.environ["FLASK_ENV"] = "testing"
+    import run  # Importa run.py para ejecutar su código
+    # Agrega aserciones para verificar que la aplicación se está ejecutando correctamente
+    # Por ejemplo, puedes hacer una solicitud HTTP a la aplicación y verificar la respuesta
+    with run.app.test_client() as client:
+        response = client.get("/")
+        assert response.status_code == 200

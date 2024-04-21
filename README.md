@@ -22,17 +22,20 @@ La aplicación web está escrita en Python con el framework Flask. Utiliza una a
 
 1. Ejecutar `docker-compose up --build`.
 2. Ejecuta `docker exec -it proyecto_final_web_1 /bin/bash`.
-3. Ejecutar `python3 manage.py run`
+3. Para acceder a la base de datos: `psql -h proyecto_final_db_1 -U myuser -d mydatabase`.
 
 ## Ejecución de los Tests
 
 Para ejecutar los tests, sigue estos pasos:
 
-1. Ejecutar `docker-compose up --build`.
-2. Ejecuta `docker exec -it proyecto_final_web_1 /bin/bash`.
-3. Ejecuta `pytest`.
-4. Visualización de errores en el código para su resolución.
-5. Si no hay errores, realizar la actualización del código.
+1. Ejecuta `make pytest`.
+2. Visualización de errores en el código para su resolución.
+3. Si no hay errores, realizar la actualización del código.
+
+## Finalizar Entorno de Pruebas
+
+1. Para salir del Entorno utilizar el comando `exit`.
+2. Para destruir el Entorno al finalizar la jornada: `docker-compose down`.
 
 ## Normas de Colaboración para el Trabajo en Equipo
 
