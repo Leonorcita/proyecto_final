@@ -10,7 +10,6 @@ pipeline {
                         // Instalar Python
                         sh 'sudo apt-get update'
                         sh 'sudo apt-get install -y python3'
-                        sh 'ls'
                     }
                 }
             }
@@ -25,8 +24,6 @@ pipeline {
         stage('Install Requirements') {
             steps {
                 script {
-                // Cambiar al directorio del repositorio clonado
-                    dir('proyecto_final') {
                         // Crear el entorno virtual
                         sh 'python3 -m venv myenv'
 
@@ -37,8 +34,7 @@ pipeline {
                         
                         sh 'ls'
                         // Instalar las dependencias del proyecto
-                        sh 'source myenv/bin/activate && pip install -r proyecto_final/requirements.txt'
-                    }
+                        sh 'source myenv/bin/activate && pip install -r requirements.txt'
                 }
             }
         }
