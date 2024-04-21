@@ -31,7 +31,7 @@ pipeline {
                     sh 'source myenv/bin/activate'
             
                     // Instalar las dependencias del proyecto
-                    sh 'pip install -r proyecto_final/requirements.txt'
+                    sh 'source myenv/bin/activate && pip install -r proyecto_final/requirements.txt'
                 }
             }
         }
@@ -39,13 +39,13 @@ pipeline {
         stage('Run Tests') {
             steps {
                 // Ejecutar pruebas usando make pytest
-                sh 'make pytest'
+                sh 'source myenv/bin/activate && make pytest'
             }
         }
         
         stage('Linting') {
             steps {
-                sh 'flake8 .'
+                sh 'source myenv/bin/activate && flake8 .'
             }
         }
         
