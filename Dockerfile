@@ -4,10 +4,13 @@ WORKDIR /app
 
 COPY . .
 
-RUN pip install -r requirements.txt
+RUN pip install --upgrade pip
 
-RUN apt-get update
+RUN apt-get update \
+    && apt-get install -y postgresql-client
 
 RUN apt-get install -y git
 
-CMD ["python", "run.py"]
+RUN pip install -r requirements.txt
+
+CMD ["sh", "start_dev_env.sh"]

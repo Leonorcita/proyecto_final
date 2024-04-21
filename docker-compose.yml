@@ -1,6 +1,15 @@
 version: "3.3"
 
 services:
+  db:
+    image: postgres:13
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=myuser
+      - POSTGRES_PASSWORD=mypassword
+      - POSTGRES_DB=mydatabase
+
   web:
     build:
       context: .
@@ -14,12 +23,5 @@ services:
       - DATABASE_URI=postgresql://myuser:mypassword@db:5432/mydatabase
     volumes:
       - .:/app
-
-  db:
-    image: postgres:13
-    ports:
-      - "5432:5432"
-    environment:
-      - POSTGRES_USER=myuser
-      - POSTGRES_PASSWORD=mypassword
-      - POSTGRES_DB=mydatabase
+    stdin_open: true
+    tty: true

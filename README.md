@@ -18,7 +18,13 @@ La aplicación web está escrita en Python con el framework Flask. Utiliza una a
 6. Creación de branch propia.
 7. Comenzar a modificar el código.
 
-## Ejecución de los Tests en el Entorno local de pruebas
+## Montaje del Entorno Local de Pruebas
+
+1. Ejecutar `docker-compose up --build`.
+2. Ejecuta `docker exec -it proyecto_final_web_1 /bin/bash`.
+3. Ejecutar `python3 manage.py run`
+
+## Ejecución de los Tests
 
 Para ejecutar los tests, sigue estos pasos:
 
