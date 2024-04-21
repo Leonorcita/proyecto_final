@@ -66,7 +66,7 @@ pipeline {
             steps {
                 script {
                     // Construir la imagen Docker
-                    docker.build("imagendockerleonor:latest")
+                    docker.build("leonorcita/imagendockerleonor:latest")
                 }
             }
         }
