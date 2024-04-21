@@ -10,6 +10,7 @@ pipeline {
                         // Instalar Python
                         sh 'sudo apt-get update'
                         sh 'sudo apt-get install -y python3'
+                        sh 'ls'
                     }
                 }
             }
@@ -33,7 +34,8 @@ pipeline {
                         sh 'source myenv/bin/activate'
 
                         sh 'pwd'
-
+                        
+                        sh 'ls'
                         // Instalar las dependencias del proyecto
                         sh 'source myenv/bin/activate && pip install -r proyecto_final/requirements.txt'
                     }
