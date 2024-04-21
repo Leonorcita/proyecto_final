@@ -24,14 +24,16 @@ pipeline {
         stage('Install Requirements') {
             steps {
                 script {
+                    // Cambiar al directorio del repositorio clonado
+                    dir('proyecto_final') {
                     // Crear el entorno virtual
                     sh 'python3 -m venv myenv'
-            
+                
                     // Activar el entorno virtual
                     sh 'source myenv/bin/activate'
-            
+                
                     // Instalar las dependencias del proyecto
-                    sh 'source myenv/bin/activate && pip install -r proyecto_final/requirements.txt'
+                    sh 'source myenv/bin/activate && pip install -r requirements.txt'
                 }
             }
         }
